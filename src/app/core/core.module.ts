@@ -1,31 +1,38 @@
 import { NgModule, ModuleWithProviders, Optional, SkipSelf } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
 
 
 // Core-Loader
-import { CoreLoaderService } from './core-loader/services/core-loader.service';
-import { CoreLoaderResolve } from './core-loader/resolves/core-loader.resolve'; 
+import { CoreLoaderModule } from './core-loader/core-loader.module';
 
 // Loading
-import { LoadingService } from './loading/services/loading.service';
+import { LoadingModule } from './loading/loading.module';
 
+// Traveller Component
+import { TravellerCoreComponent } from './components/traveller-core.component';
 
 @NgModule({
 	imports:[
+		BrowserModule,
 		CommonModule,
-		FormsModule
+		FormsModule,
+		HttpModule,
+		RouterModule,
+		LoadingModule,
+		CoreLoaderModule
 	],
 	providers:[
-		LoadingService,
-		CoreLoaderService,
-		CoreLoaderResolve
 	],
 	declarations:[
-
+		TravellerCoreComponent
 	],
 	exports:[
-	
+		TravellerCoreComponent
 	]
 })
 export class CoreModule {
@@ -36,17 +43,4 @@ export class CoreModule {
 			);
 		}
 	}
-
-	static forRoot(config:CoreConfiguration):ModuleWithProviders {
-		let mod = {
-			ngModule:CoreModule,
-			providers:[]
-		};
-
-		return mod;
-	}
-}
-
-export interface CoreConfiguration {
-
 }
