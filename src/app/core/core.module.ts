@@ -7,17 +7,15 @@ import { FormsModule } from '@angular/forms';
 import { CoreLoaderService } from './core-loader/services/core-loader.service';
 import { CoreLoaderResolve } from './core-loader/resolves/core-loader.resolve'; 
 
-// Loading
-import { LoadingService } from './loading/services/loading.service';
-
+import { LoadingModule } from './loading/loading.module';
 
 @NgModule({
 	imports:[
 		CommonModule,
-		FormsModule
+		FormsModule,
+		LoadingModule
 	],
 	providers:[
-		LoadingService,
 		CoreLoaderService,
 		CoreLoaderResolve
 	],
