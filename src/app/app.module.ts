@@ -1,25 +1,26 @@
-import { BrowserModule } from '@angular/platform-browser';
+
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { TravellerCoreComponent } from './core/components/traveller-core.component';
+
+import { FeaturesModule } from './modules/features.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TravellerCoreComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule,
-    HttpModule,
+    AppRoutingModule,
     CoreModule,
     SharedModule,
-    AppRoutingModule
+    FeaturesModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
